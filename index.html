@@ -8,23 +8,94 @@
   </head>
   <body class="bg-primary-0">
     <main class="max-w-[1280px] w-11/12 mx-auto py-4">
-      <header class="bg-white flex items-center justify-between rounded-2xl py-3 px-4">
+      <header
+        class="bg-white flex items-center justify-between rounded-2xl py-3 px-4"
+      >
         <div class="flex items-center gap-2">
-          <img src="./src/assets/logo.png" alt="" class="w-[35px] sm:w-[45px]"/>
-          <p class="hidden sm:block text-2xl font-light text-dark">Dev<span class="font-bold">Board</span></p>
+          <img
+            src="./src/assets/logo.png"
+            alt=""
+            class="w-[35px] sm:w-[45px]"
+          />
+          <p class="hidden sm:block text-2xl font-light text-dark">
+            Dev<span class="font-bold">Board</span>
+          </p>
         </div>
         <div class="flex items-center gap-4">
           <div class="flex items-center gap-1 bg-primary-0 p-2 rounded-full">
-            <img src="./src/assets/checkbox.png" alt="" class="w-[18px] sm:w-6"/>
+            <img
+              src="./src/assets/checkbox.png"
+              alt=""
+              class="w-[18px] sm:w-6"
+            />
             <p class="sm:text-lg text-[#1E1E1E] font-bold">24</p>
           </div>
-          <div class="flex items-center justify-center p-2 rounded-full bg-primary-0">
+          <div
+            class="flex items-center justify-center p-2 rounded-full bg-primary-0"
+          >
             <button class="cursor-pointer">
-              <img src="./src/assets/theme-btn.png" alt="" class="w-6 sm:w-[30px]"/>
+              <img
+                src="./src/assets/theme-btn.png"
+                alt=""
+                class="w-6 sm:w-[30px]"
+              />
             </button>
           </div>
         </div>
       </header>
+      <section class="grid md:grid-cols-[1fr_0.4fr] gap-4 mt-3">
+        <div class="bg-white rounded-2xl p-4">
+          <div class="grid md:grid-cols-[0.5fr_1fr_0.5fr] gap-4 border-b border-dashed border-primary-1 pb-4">
+            <div
+              class="bg-primary-0 rounded-xl flex items-center justify-center gap-2 py-5 px-1"
+            >
+              <div
+                class="bg-white p-2 rounded-full flex items-center justify-center"
+              >
+                <img
+                  src="./src/assets/checkbox.png"
+                  alt=""
+                  class="w-4 sm:w-5"
+                />
+              </div>
+              <div>
+                <h2 class="text-sm font-medium text-dark/[0.8]">
+                  Task Assigned 
+                </h2>
+                <p class="text-2xl text-dark font-bold">24</p>
+              </div>
+            </div>
+            <a
+              class="rounded-xl bg-gradient-to-br from-primary from-0% via-[#6C7FFA] via-[53%] to-[#9BA8F8] to-100% py-5 flex items-center justify-center gap-2"
+              href=""
+            >
+              <img src="./src/assets/board.png" alt="" class="w-15 sm:w-[72px]"/>
+              <p class="sm:text-lg font-medium text-white">
+                Discover Something <br />
+                New Today!
+              </p>
+            </a>
+            <div
+              class="bg-primary-0 rounded-xl flex items-center justify-center gap-2 py-5 px-1"
+            >
+              <div
+                class="bg-white p-2 rounded-full flex items-center justify-center"
+              >
+                <img
+                  src="./src/assets/calender.png"
+                  alt=""
+                  class="w-4 sm:w-5"
+                />
+              </div>
+              <div>
+                <h2 class="text-sm font-medium text-dark/[0.8]">Wed,</h2>
+                <p class="sm:text-lg text-dark font-bold">Jul 28 2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-4"></div>
+      </section>
     </main>
   </body>
 </html>
