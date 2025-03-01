@@ -41,6 +41,7 @@ const cardData = [
 
 function handleCardButtonClick(event, title) {
   console.log(event.target, title);
+  event.target.disabled = true;
 }
 
 function renderCards() {
