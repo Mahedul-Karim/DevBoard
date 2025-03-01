@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevBoard-Blogs</title>
+    <link rel="stylesheet" href="./src/css/output.css" />
+  </head>
+  <body class="bg-primary-0">
+    <main class="max-w-[1280px] w-11/12 mx-auto py-4">
+      <header
+        class="bg-white flex items-center justify-between rounded-2xl py-3 px-4"
+      >
+        <div class="flex items-center gap-2">
+          <img
+            src="./src/assets/logo.png"
+            alt=""
+            class="w-[35px] sm:w-[45px]"
+          />
+          <p class="hidden sm:block text-2xl font-light text-dark">
+            Dev<span class="font-bold">Board</span>
+          </p>
+        </div>
+        <div class="">
+          <button
+            class="bg-primary disabled:bg-primary-1 cursor-pointer rounded-lg px-3 py-2 text-sm text-white"
+            id="navigate-btn"
+          >
+            Back to Desk
+          </button>
+        </div>
+      </header>
+
+      <h2 class="text-dark text-center text-lg font-bold py-4">Blogs</h2>
+
+      <section class="space-y-4">
+        <article class="bg-white rounded-lg p-4">
+          <h2
+            class="text-lg text-dark font-bold pb-2 border-b border-dashed border-primary-1"
+          >
+            What are the different ways to select an element in the DOM?
+          </h2>
+          <p class="pt-2 text-dark/[0.7] leading-[1.8]">
+            The different ways of select an element is by using
+            document.getElementById(), document.getElementsByTagName(),
+            document.getElementsByClassName(), document.querySelector(),
+            document.querySelectorAll()
+          </p>
+        </article>
+        <article class="bg-white rounded-lg p-4">
+          <h2
+            class="text-lg text-dark font-bold pb-2 border-b border-dashed border-primary-1"
+          >
+            What is the difference between innerHTML, innerText, and textContent
+            ?
+          </h2>
+          <p class="pt-2 text-dark/[0.7] leading-[1.8]">
+            innerHTML returns all elements including texts, spacing and html
+            element inside a parent element. innerText returns only texts that
+            are not hidden using css while textContent return all texts even if
+            they are hidden using css.
+          </p>
+        </article>
+        <article class="bg-white rounded-lg p-4">
+          <h2
+            class="text-lg text-dark font-bold pb-2 border-b border-dashed border-primary-1"
+          >
+            What is event delegation in the DOM?
+          </h2>
+          <p class="pt-2 text-dark/[0.7] leading-[1.8]">
+            Event delegation is a technique of adding the event listener to the
+            parent element instead of adding same event to the multiple children
+            elements.
+          </p>
+        </article>
+        <article class="bg-white rounded-lg p-4">
+          <h2
+            class="text-lg text-dark font-bold pb-2 border-b border-dashed border-primary-1"
+          >
+            What is event bubbling in the DOM?
+          </h2>
+          <p class="pt-2 text-dark/[0.7] leading-[1.8]">
+            Event bubbling is a process where any sort event happens on the
+            child elements, it bubbles up to the parent and all the way to the
+            root element.
+          </p>
+        </article>
+        <article class="bg-white rounded-lg p-4">
+          <h2
+            class="text-lg text-dark font-bold pb-2 border-b border-dashed border-primary-1"
+          >
+            How do you create, add, and remove elements using JavaScript?
+          </h2>
+          <p class="pt-2 text-dark/[0.7] leading-[1.8]">
+            document.createElement() creates an element, document.innerHtml() is
+            used to add an element and element.remove() is used to remove an
+            element.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="./src/js/blog.js"></script>
+  </body>
+</html>

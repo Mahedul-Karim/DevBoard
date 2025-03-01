@@ -1,4 +1,14 @@
 const cardContainer = document.getElementById("card-container");
+const completedTaskContainer = document.getElementById("completed-tasks");
+const remainingTaskContainer = document.getElementById("remaining-tasks");
+const weekdayContainer = document.getElementById("weekday");
+const monthContainer = document.getElementById("month");
+const historyContainer = document.getElementById("history-container");
+const historyClearBtn = document.getElementById("clear-history-btn");
+const themeChangeBtn = document.getElementById("theme-change-btn");
+
+let completedTasks = 24;
+let remainingTasks = 6;
 
 const cardData = [
   {
@@ -39,14 +49,9 @@ const cardData = [
   },
 ];
 
-function handleCardButtonClick(event, title) {
-  console.log(event.target, title);
-  event.target.disabled = true;
-}
-
 function renderCards() {
   const cardElement = cardData
-    .map((card) => {
+    .map((card, index) => {
       return `<article
               class="bg-primary-0 rounded-lg p-4 flex flex-col gap-4 justify-between"
             >
@@ -67,7 +72,7 @@ function renderCards() {
                   <h4 class="text-sm font-medium text-dark">21 March 2025</h4>
                 </div>
                 <div>
-                  <button class="bg-primary disabled:bg-primary-1  cursor-pointer rounded-lg px-3 py-2 text-sm text-white card-button"  onclick="handleCardButtonClick(event,'${card.title}')">Completed</button>
+                  <button class="bg-primary disabled:bg-primary-1  cursor-pointer rounded-lg px-3 py-2 text-sm text-white card-button"  onclick="handleCardButtonClick(event,'${card.title}')" data-index="${index}">Completed</button>
                 </div>
               </div>
             </article>`;
@@ -77,6 +82,83 @@ function renderCards() {
   cardContainer.innerHTML = cardElement;
 }
 
+function updateCompletedTasks() {
+  completedTaskContainer.textContent = completedTasks;
+}
+
+function updateRemainingTasks() {
+  remainingTaskContainer.textContent = remainingTasks;
+}
+
+function getToday() {
+  const today = new Date();
+
+  const weekday = today.toLocaleDateString("en-US", {
+    weekday: "short",
+  });
+
+  const month = today.toLocaleDateString("en-US", {
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+  });
+
+  weekdayContainer.textContent = `${weekday},`;
+  monthContainer.textContent = month;
+}
+
+function getTime() {
+  const timeOfCompletion = new Date();
+
+  const hours = timeOfCompletion.getHours() % 12 || 12;
+  const minuts = timeOfCompletion.getMinutes().toString().padStart(2, "0");
+  const seconds = timeOfCompletion.getSeconds().toString().padStart(2, "0");
+  const ampm = timeOfCompletion.getHours() >= 12 ? "PM" : "AM";
+
+  const time = `${hours
+    .toString()
+    .padStart(2, "0")}:${minuts}:${seconds}:${ampm}`;
+
+  return time;
+}
+
+function handleCardButtonClick(e, title) {
+  const time = getTime();
+
+  alert("Board Updated Successfully!");
+
+  if (remainingTasks === 1) {
+    alert("Congrats!! You have successfully completed all the current tasks!");
+  }
+
+  completedTasks++;
+  remainingTasks--;
+
+  const historyItem = `<p class="text-sm text-dark/[0.7] bg-primary-0 p-2">
+                You have Complete The Task ${title} at ${time}
+              </p>`;
+
+  historyContainer.insertAdjacentHTML("afterbegin", historyItem);
+  updateCompletedTasks();
+  updateRemainingTasks();
+  e.target.disabled = true;
+}
+
+historyClearBtn.addEventListener("click", function () {
+  historyContainer.replaceChildren();
+});
+
+themeChangeBtn.addEventListener("click", function () {
+  const color = `rgba(${Math.round(Math.random() * 255)},${Math.round(
+    Math.random() * 255
+  )},${Math.round(Math.random() * 255)},0.2)`;
+
+  document.body.style.backgroundColor = color;
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   renderCards();
+  updateCompletedTasks();
+  updateRemainingTasks();
+  getToday();
 });
